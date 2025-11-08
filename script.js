@@ -16,16 +16,31 @@ function DrawGrid(size) {
             const gridSquare = document.createElement("div");
             gridSquare.classList.add("grid-square");
             gridRow.appendChild(gridSquare);
+        }
+
+        container.appendChild(gridRow);
+    }
+}
+
+function GetRandomColor() {
+    let letters = "0123456789abcdf";
+    let color = "#";
+
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
     }
 
-    container.appendChild(gridRow);
-}
+    return color;
 }
 
 DrawGrid(gridRowSize);
 
 container.addEventListener("mouseover", (e) => {
-    e.target.classList.add("hovered-square");
+    let style = window.getComputedStyle(e.target);
+    let currentColor = style.getPropertyValue("background-color");
+    if (style.getPropertyValue("background-color") == "rgb(255, 255, 255)") {
+        e.target.style.backgroundColor = GetRandomColor();
+    }
 });
 
 btn.addEventListener("click", (e) => {

@@ -18,10 +18,7 @@
 
 .grid-square {
     flex-basis: calc(100% / var(--grid-row-size));
-}
-
-.hovered-square {
-    background-color: black;
+    background-color: #ffffff;
 }
 
 #set-size-btn {
