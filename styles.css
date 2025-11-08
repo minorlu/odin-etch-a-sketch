@@ -1,15 +1,29 @@
+:root {
+    --grid-row-size: 16;
+}
+
 .container {
     display: flex;
     flex-wrap: wrap;
-    width: 700px;
-    height: 700px;
+    width: 800px;
+    height: 800px;
+    flex-direction: column;
+}
+
+.grid-row {
+    display: flex;
+    flex-basis: calc(100% / var(--grid-row-size));
+    flex-wrap: nowrap;
 }
 
 .grid-square {
-    height: 43.75px;
-    width: 43.75px;
+    flex-basis: calc(100% / var(--grid-row-size));
 }
 
 .hovered-square {
     background-color: black;
+}
+
+#set-size-btn {
+    margin-bottom: 1em;
 }
